@@ -1,6 +1,7 @@
 package demo;
 
 import java.util.Hashtable;
+import java.util.Random;
 
 /**
  * Created by teacher
@@ -19,23 +20,30 @@ import java.util.Hashtable;
         比较两种方法的效率和分布
 */
 public class HashtableTest {
-    public static void main(String[] args) {
-        Hashtable<Integer, String> hashtable = new Hashtable<>();
 
-        hashtable.put(1, "hi");
-        hashtable.put(2, "hello");
-        hashtable.put(2, "test");
+    private Hashtable<Integer, Integer> hashtable;
 
-        System.out.println(hashtable.get(2)); // hello
-
-        System.out.println(hashtable.size()); // 2
-
-//        hashtable.clear(); //
-
-//        System.out.println(hashtable.size()); // 0
-
-        for (Integer integer : hashtable.keySet()) {
-            System.out.println(integer + " -> " + hashtable.get(integer));
+    public HashtableTest() {
+        hashtable = new Hashtable<>();
+        for (int i = 0; i < 20; i++) {
+            hashtable.put(i + 1, 0);
         }
+    }
+
+    public static void main(String[] args) {
+        HashtableTest hashtableTest = new HashtableTest();
+        Random random = new Random();
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+            int r = (int) (Math.random() * 20) + 1;
+//            int r = random.nextInt(20) + 1;
+            hashtableTest.hashtable.put(r, hashtableTest.hashtable.get(r) + 1); // ***
+//            System.out.println(r);
+        }
+        for (Integer integer : hashtableTest.hashtable.keySet()) {
+            System.out.println(integer + "\t->\t" + hashtableTest.hashtable.get(integer));
+        }
+        System.out.println(System.currentTimeMillis() - start);
+
     }
 }
