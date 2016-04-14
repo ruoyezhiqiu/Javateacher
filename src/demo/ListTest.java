@@ -8,7 +8,7 @@ import java.util.List;
  * Created by teacher
  * 13:11 2016/4/14.
  */
-public class CollectionTest {
+public class ListTest {
     public static void main(String[] args) {
         List<String> arrayList = new ArrayList<>();
         List<String> linkedList = new LinkedList<>();
@@ -17,9 +17,11 @@ public class CollectionTest {
 //            linkedList.add(String.valueOf(i));
         }
 
-        long start = System.currentTimeMillis();
-        System.out.println(arrayList.get(499999)); // O(1)
+        long start = System.nanoTime();
+//        System.out.println(arrayList.get(499999)); // O(1)
 //        System.out.println(linkedList.get(499999)); // O(n)
-        System.out.println(System.currentTimeMillis() - start);
+        arrayList.remove(0); // O(1) O(n)
+//        linkedList.remove(0); // O(1)
+        System.out.println(System.nanoTime() - start);
     }
 }
