@@ -1,9 +1,6 @@
 package demo;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Created by teacher
@@ -16,8 +13,8 @@ public class TreeMapTest {
         map.put(2, "hello");
         map.put(-1, "zoo");
 
-//        map = (TreeMap<Integer, String>) map.descendingMap(); // TODO: 2016/4/14
-
+        NavigableMap<Integer, String> navigableMap = map.descendingMap(); // TODO: 2016/4/14
+        System.out.println(navigableMap);
 
         for (Integer integer : map.descendingKeySet()) {
             System.out.println(integer + " > " + map.get(integer));
