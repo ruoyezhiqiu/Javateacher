@@ -11,23 +11,15 @@ import java.util.List;
 public class CollectionTest {
     public static void main(String[] args) {
         List<String> arrayList = new ArrayList<>();
-        arrayList.add("hi");
-        arrayList.add("hello");
-        arrayList.add("hello");
-
-        arrayList.remove(2);
-        arrayList.set(1, "hi2");
-
-        System.out.println(arrayList.get(1));
-        System.out.println(arrayList.size());
-
         List<String> linkedList = new LinkedList<>();
-        linkedList.add("hi");
+        for (int i = 0; i < 1000000; i++) {
+            arrayList.add(String.valueOf(i));
+//            linkedList.add(String.valueOf(i));
+        }
 
-        linkedList.set(0, "hello");
-
-        System.out.println(linkedList.get(0));
-        linkedList.remove(0);
-        System.out.println(linkedList.size());
+        long start = System.currentTimeMillis();
+        System.out.println(arrayList.get(499999)); // O(1)
+//        System.out.println(linkedList.get(499999)); // O(n)
+        System.out.println(System.currentTimeMillis() - start);
     }
 }
