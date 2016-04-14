@@ -1,8 +1,6 @@
 Java 集合框架
 
 Vector
-Stack
-
 ArrayList
 LinkedList
 
@@ -10,11 +8,9 @@ HashSet
 TreeSet
 LinkedHashSet
 
-TreeMap
-HashMap
-WeakHashMap
 Hashtable
-IdentityHashMap
+HashMap
+TreeMap
 
 Collections
 Arrays
