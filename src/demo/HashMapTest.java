@@ -20,6 +20,10 @@ public class HashMapTest {
         for (Integer integer : map.keySet()) {
             System.out.println(integer + " > " + map.get(integer));
         }
+        System.out.println("--------");
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue());
+        }
 
     }
 }
