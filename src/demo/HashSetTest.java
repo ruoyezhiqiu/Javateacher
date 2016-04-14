@@ -7,7 +7,7 @@ import java.util.Set;
  * Created by teacher
  * 14:24 2016/4/14.
  */
-public class SetTest {
+public class HashSetTest {
     public static void main(String[] args) {
         Set<String> hashSet = new HashSet<>();
 
@@ -17,5 +17,12 @@ public class SetTest {
 
 //        System.out.println(hashSet.);
         System.out.println(hashSet.size());
+        System.out.println(hashSet.contains("hi"));
+        System.out.println("=================");
+        hashSet.remove("Hello");
+        for (String s : hashSet) {
+            System.out.println(s);
+        }
+
     }
 }
