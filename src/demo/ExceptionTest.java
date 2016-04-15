@@ -47,7 +47,7 @@ public class ExceptionTest {
         }
 
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile("", "rw");
+            RandomAccessFile randomAccessFile = new RandomAccessFile("sdfg", "rw");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -67,6 +67,7 @@ public class ExceptionTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
     }
 //显式
     public void method() throws InterruptedException {
