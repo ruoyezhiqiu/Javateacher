@@ -1,5 +1,9 @@
 package demo;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
 /**
  * Created by teacher
  * 8:43 2016/4/15.
@@ -18,7 +22,7 @@ public class ExceptionTest {
         String s = "hello";
 
         ExceptionTest exceptionTest = new ExceptionTest();
-        exceptionTest = null;
+//        exceptionTest = null;
         try {
 //            System.out.println(s.charAt(5)); // StringIndexOutOfBoundsException
 //            System.out.println(exceptionTest.i); // NullPointerException NPE
@@ -35,6 +39,43 @@ public class ExceptionTest {
             System.out.println("finally...");
         }
         System.out.println("test...");
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            RandomAccessFile randomAccessFile = new RandomAccessFile("", "rw");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("end...");
+
+        try {
+            exceptionTest.method();
+            exceptionTest.test();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+//显式
+    public void method() throws InterruptedException {
+        System.out.println("method...");
+        throw new ArithmeticException();
+    }
+
+    public void test() throws InterruptedException {
+        method();
     }
 }
 
