@@ -9,11 +9,8 @@ import java.io.*;
  */
 public class StreamTest {
     public static void main(String[] args) {
-        InputStream inputStream = null;
-        OutputStream outputStream = null;
-        try {
-            inputStream = new FileInputStream("src/io/StreamTest.java");
-            outputStream = new FileOutputStream("data/temp.java");
+        try (InputStream inputStream = new FileInputStream("src/io/StreamTest.java");
+             OutputStream outputStream = new FileOutputStream("data/temp.java")) {
             System.out.println(inputStream.available());
             int i;
             while ((i = inputStream.read()) != -1) {
@@ -22,21 +19,6 @@ public class StreamTest {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }
