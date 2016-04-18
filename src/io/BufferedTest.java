@@ -11,14 +11,14 @@ public class BufferedTest {
     private static final String INPUT_FILE_NAME = "d:/ideaIU-15.0.2.exe";
     private static final String OUTPUT_FILE_NAME = "c:/test.exe";
 
-    public static void main(String[] args) throws IOException {
-       /* try (InputStream inputStream = new FileInputStream(INPUT_FILE_NAME);
+    public static void main(String[] args) {
+        try (InputStream inputStream = new FileInputStream(INPUT_FILE_NAME);
              OutputStream outputStream = new FileOutputStream(OUTPUT_FILE_NAME)) {
             int i;
             while ((i = inputStream.read()) != -1) {
                 outputStream.write(i);
             }
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -28,14 +28,19 @@ public class BufferedTest {
             while ((i = bufferedInputStream.read()) != -1) {
                 bufferedOutputStream.write(i);
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        */
+
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/io/BufferedTest.java"))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
             }
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

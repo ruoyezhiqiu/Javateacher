@@ -1,6 +1,8 @@
 package io;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.util.Date;
 
 /**
@@ -16,7 +18,6 @@ public class FileTest {
         System.out.println(file.isDirectory());
         System.out.println(file.length());
         System.out.println(new Date(file.lastModified()));
-
         System.out.println(file.mkdirs());
     }
 }
